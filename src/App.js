@@ -1,9 +1,15 @@
-import React, {useContext, useEffect} from 'react';
-import { HashRouter, BrowserRouter, Router, Route, Switch} from 'react-router-dom';
-import logo from './logo.svg';
-import './App.scss';
-import Amplify from 'aws-amplify';
-import { Hub, Auth } from 'aws-amplify';
+import React, { useContext, useEffect } from "react";
+import {
+  HashRouter,
+  BrowserRouter,
+  Router,
+  Route,
+  Switch,
+} from "react-router-dom";
+import logo from "./logo.svg";
+import "./App.scss";
+import Amplify from "aws-amplify";
+import { Hub, Auth } from "aws-amplify";
 
 // amplify aws config
 /*
@@ -24,30 +30,38 @@ Amplify.configure({
 */
 
 // Containers
-const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout/DefaultLayout'));
-const AuthLayout = React.lazy(() => import('./containers/AuthLayout/AuthLayout'));
+const DefaultLayout = React.lazy(() =>
+  import("./containers/DefaultLayout/DefaultLayout")
+);
+const AuthLayout = React.lazy(() =>
+  import("./containers/AuthLayout/AuthLayout")
+);
 
 const App = (props) => {
-
-
-    Auth.currentSession().then((sessionData) => {
-        console.log('SESSION DATA TOKEN', sessionData);
-        const token = sessionData.getAccessToken().getJwtToken();
-        sessionStorage.setItem('token', token);
-    }).catch(() =>{
-        console.log('could not auth user');
+  Auth.currentSession()
+    .then((sessionData) => {
+      console.log("SESSION DATA TOKEN", sessionData);
+      const token = sessionData.getAccessToken().getJwtToken();
+      sessionStorage.setItem("token", token);
+    })
+    .catch(() => {
+      console.log("could not auth user");
     });
 
-    let container = (
-            <BrowserRouter>
-                <React.Suspense fallback={<h1>Loading profile...</h1>}>
-                <Switch>
-                    <Route path="/" name="Home" render={props => <DefaultLayout {...props}/>} />
-                </Switch>
-            </React.Suspense>
-            </BrowserRouter>
-    );
-    return container;
+  let container = (
+    <BrowserRouter>
+      <React.Suspense fallback={<h1>Loading profile...</h1>}>
+        <Switch>
+          <Route
+            path="/"
+            name="Home"
+            render={(props) => <DefaultLayout {...props} />}
+          />
+        </Switch>
+      </React.Suspense>
+    </BrowserRouter>
+  );
+  return container;
 };
 
 export default App;

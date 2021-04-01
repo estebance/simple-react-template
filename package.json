@@ -10,6 +10,10 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
     "env-cmd": "^10.1.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "formik": "^2.2.6",
     "node-sass": "^4.14.1",
     "react": "^16.14.0",
@@ -24,6 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:develop": "env-cmd -f env/develop.env npm run build",
+    "lint": "eslint --fix .",
+    "format": "prettier --write .",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -41,5 +47,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-plugin-react": "^7.23.1",
+    "prettier": "2.2.1"
   }
 }

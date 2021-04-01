@@ -1,8 +1,5 @@
-import React from 'react';
+import React from "react";
 
-const routes = [
-];
+const routes = [];
 
 export default routes;
-
-
