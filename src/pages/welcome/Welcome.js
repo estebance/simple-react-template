@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Jumbotron, Button } from "react-bootstrap";
-import "./Welcome.scss";
 
 const Welcome = React.memo((props) => {
   let goTo = (option) => {

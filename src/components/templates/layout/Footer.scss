@@ -1,0 +1,27 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1.5rem;
+  text-align: center;
+  font-size: 0.5rem;
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 14px;
+  padding-top: 5px;
+  z-index: 100;
+}
+
+@include media-breakpoint-up(lg) {
+  .footer {
+    height: 2.2rem;
+  }
+}
+
