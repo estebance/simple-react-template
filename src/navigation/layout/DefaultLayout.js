@@ -1,42 +1,39 @@
 import React, { Component, Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 import routes from "../routes";
 import AppFooter from "../../components/templates/layout/Footer";
 import AppHeader from "../../components/templates/layout/Header";
 
-class DefaultLayout extends Component {
-  constructor(props) {
-    super(props);
-  }
 
-  render() {
+const DefaultLayout = () => {
     return (
       <div className="App">
         <div className="app-body">
-          <AppHeader />
+          <AppHeader/>
           <main className="main">
-            <Container>
-              <Switch>
-                {routes.map((route, idx) => {
-                  return route.component ? (
-                    <Route
-                      key={idx}
-                      path={route.path}
-                      exact={route.exact}
-                      name={route.name}
-                      render={(props) => <route.component {...props} />}
-                    />
-                  ) : null;
-                })}
-              </Switch>
-            </Container>
+            <Routes>
+              {routes.map((route, idx) => {
+                return route.element ? (
+                  <Route
+                    key={idx}
+                    path={route.path}
+                    exact={route.exact}
+                    name={route.name}
+                    element={<route.element/>}
+                  />
+                ) : null;
+              })}
+            </Routes>
           </main>
           <AppFooter />
         </div>
       </div>
     );
-  }
-}
+};
 
 export default DefaultLayout;

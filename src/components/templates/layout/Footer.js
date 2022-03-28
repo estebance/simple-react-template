@@ -1,5 +1,4 @@
 import React, { Component, Suspense } from "react";
-import { Row, Col } from "react-bootstrap";
 import "./Footer.scss";
 
 const AppFooter = React.memo((props) => {

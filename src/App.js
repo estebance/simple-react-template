@@ -4,7 +4,6 @@ import {
   BrowserRouter,
   Router,
   Route,
-  Switch,
 } from "react-router-dom";
 import Navigator from "./navigation";
 import { Provider } from "react-redux";

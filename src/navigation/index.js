@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 // import { useSelector, useDispatch } from "react-redux";
-import { Redirect, BrowserRouter, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 // import * as actions from "../store/actions";
 
 const DefaultLayout = React.lazy(() => import("./layout/DefaultLayout"));
@@ -20,18 +25,18 @@ const Navigator = () => {
   }, []);
 
   const nonAuthroutes = (
-    <Switch>
+    <Routes>
       <Route
-        path="/"
+        path="*"
         name="Home"
-        render={(props) => <DefaultLayout {...props}/>}
+        element={<DefaultLayout />}
       />
-    </Switch>
+    </Routes>
   );
 
   /* 
   const authRoutes = (
-    <Switch>
+    <Routes>
       <Route
         path="/"
         name="Home"
@@ -41,7 +46,7 @@ const Navigator = () => {
         }/>
         )}
       />
-    </Switch>
+    </Routes>
   );
   */ 
 

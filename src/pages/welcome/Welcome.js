@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Jumbotron, Button } from "react-bootstrap";
 
 const Welcome = React.memo((props) => {
   let goTo = (option) => {
@@ -12,20 +11,8 @@ const Welcome = React.memo((props) => {
 
   return (
     <section>
-      <Jumbotron>
-        <h1>Example</h1>
-        <p>This is a message for the public</p>
-        <p>
-          <Button
-            variant="primary"
-            onClick={(e) => {
-              goTo("sign_in");
-            }}
-          >
-            Sign In
-          </Button>
-        </p>
-      </Jumbotron>
+      <h1>Example</h1>
+      <p>This is a message for the public</p>
     </section>
   );
 });

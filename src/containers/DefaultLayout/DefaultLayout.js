@@ -1,6 +1,5 @@
 import React, { Component, Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Redirect, BrowserRouter, Route, Routes } from "react-router-dom";
 import routes from "../../routes";
 import logo from "../../logo.svg";
 import AppFooter from "../AppFooter/AppFooter";
@@ -17,21 +16,19 @@ class DefaultLayout extends Component {
         <div className="app-body">
           <AppHeader />
           <main className="main">
-            <Container>
-              <Switch>
-                {routes.map((route, idx) => {
-                  return route.component ? (
-                    <Route
-                      key={idx}
-                      path={route.path}
-                      exact={route.exact}
-                      name={route.name}
-                      render={(props) => <route.component {...props} />}
-                    />
-                  ) : null;
-                })}
-              </Switch>
-            </Container>
+            <Routes>
+              {routes.map((route, idx) => {
+                return route.component ? (
+                  <Route
+                    key={idx}
+                    path={route.path}
+                    exact={route.exact}
+                    name={route.name}
+                    element={(props) => <route.element {...props} />}
+                  />
+                ) : null;
+              })}
+            </Routes>
           </main>
           <AppFooter />
         </div>
