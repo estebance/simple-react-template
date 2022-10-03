@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import example from "./example";
 
 const appReducers = combineReducers({
-  example
+  example,
 });
 
 const rootReducer = (state, action) => {
@@ -11,4 +11,3 @@ const rootReducer = (state, action) => {
 };
 
 export default rootReducer;
-

@@ -1,10 +1,6 @@
 import React, { useEffect } from "react";
 // import { useSelector, useDispatch } from "react-redux";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import * as actions from "../store/actions";
 
@@ -21,16 +17,12 @@ const Navigator = () => {
   // const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('init hook')
+    console.log("init hook");
   }, []);
 
   const nonAuthroutes = (
     <Routes>
-      <Route
-        path="*"
-        name="Home"
-        element={<DefaultLayout />}
-      />
+      <Route path="*" name="Home" element={<DefaultLayout />} />
     </Routes>
   );
 
@@ -48,16 +40,13 @@ const Navigator = () => {
       />
     </Routes>
   );
-  */ 
+  */
 
   return (
     <React.Suspense fallback={loadingTemplate()}>
-      <BrowserRouter>
-        {nonAuthroutes}
-      </BrowserRouter>
+      <BrowserRouter>{nonAuthroutes}</BrowserRouter>
     </React.Suspense>
   );
 };
 
 export default Navigator;
-

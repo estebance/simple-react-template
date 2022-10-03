@@ -2,12 +2,12 @@ import * as actionTypes from "../constants";
 import { updateObject } from "../../utils";
 
 const initialState = {
-  value: null
+  value: null,
 };
 
 const setValue = (state, action) => {
   return updateObject(state, {
-    value: ''
+    value: "",
   });
 };
 
@@ -21,4 +21,3 @@ const example = (state = initialState, action) => {
 };
 
 export default example;
-

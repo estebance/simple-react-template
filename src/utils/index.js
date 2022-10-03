@@ -4,4 +4,3 @@ export const updateObject = (oldObject, updatedProperties) => {
     ...updatedProperties,
   };
 };
-
