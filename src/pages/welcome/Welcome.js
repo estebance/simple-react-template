@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Welcome = React.memo((props) => {
+const Welcome = (props) => {
+  let navigate = useNavigate();
   let goTo = (option) => {
     if (option == "sign_in") {
-      props.history.push("/sign-in");
+      navigate("/sign-in");
     } else if (option == "sign_up") {
-      props.history.push("/sign-up");
+      navigate("/sign-up");
     }
   };
 
   return (
     <section>
       <h1>Example</h1>
-      <p>This is a message for the public</p>
+      <p onClick={(e) => goTo("sign_in")}>This is a message for the public</p>
     </section>
   );
-});
+};
 
 export default Welcome;

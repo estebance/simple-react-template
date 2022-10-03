@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from "react";
 import "./AppFooter.scss";
 
-const AppFooter = React.memo((props) => {
+const AppFooter = (props) => {
   return (
     <React.Fragment>
       <footer className="footer">
@@ -9,6 +9,6 @@ const AppFooter = React.memo((props) => {
       </footer>
     </React.Fragment>
   );
-});
+};
 
 export default AppFooter;
